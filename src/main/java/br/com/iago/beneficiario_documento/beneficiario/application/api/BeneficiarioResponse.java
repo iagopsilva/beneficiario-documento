@@ -1,4 +1,4 @@
-package br.com.iago.beneficiario_documento.application.api;
+package br.com.iago.beneficiario_documento.beneficiario.application.api;
 
 import lombok.Builder;
 import lombok.Value;

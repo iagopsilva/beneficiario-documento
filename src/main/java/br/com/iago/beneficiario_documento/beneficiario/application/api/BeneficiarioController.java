@@ -1,6 +1,6 @@
-package br.com.iago.beneficiario_documento.application.api;
+package br.com.iago.beneficiario_documento.beneficiario.application.api;
 
-import br.com.iago.beneficiario_documento.application.service.BeneficiarioService;
+import br.com.iago.beneficiario_documento.beneficiario.application.service.BeneficiarioService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

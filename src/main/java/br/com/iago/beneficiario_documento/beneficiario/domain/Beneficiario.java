@@ -1,6 +1,6 @@
-package br.com.iago.beneficiario_documento.application.domain;
+package br.com.iago.beneficiario_documento.beneficiario.domain;
 
-import br.com.iago.beneficiario_documento.application.api.BeneficiarioRequest;
+import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

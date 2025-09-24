@@ -1,9 +1,9 @@
-package br.com.iago.beneficiario_documento.application.service;
+package br.com.iago.beneficiario_documento.beneficiario.application.service;
 
-import br.com.iago.beneficiario_documento.application.api.BeneficiarioRequest;
-import br.com.iago.beneficiario_documento.application.api.BeneficiarioResponse;
-import br.com.iago.beneficiario_documento.application.domain.Beneficiario;
-import br.com.iago.beneficiario_documento.application.repository.BeneficiarioRepository;
+import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
+import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioResponse;
+import br.com.iago.beneficiario_documento.beneficiario.domain.Beneficiario;
+import br.com.iago.beneficiario_documento.beneficiario.application.repository.BeneficiarioRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
