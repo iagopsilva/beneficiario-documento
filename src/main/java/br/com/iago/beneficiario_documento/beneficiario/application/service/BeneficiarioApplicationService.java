@@ -1,5 +1,6 @@
 package br.com.iago.beneficiario_documento.beneficiario.application.service;
 
+import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioDetalhadoResponse;
 import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioListResponse;
 import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
 import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioResponse;
@@ -10,6 +11,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Log4j2
@@ -34,5 +36,13 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
         List<Beneficiario> beneficiarios = beneficiarioRepository.buscaTudosBeneficiarios();
         log.info("[inicia] BeneficiarioApplicationService - buscaTudosBeneficiarios");
         return BeneficiarioListResponse.converte(beneficiarios);
+    }
+
+    @Override
+    public BeneficiarioDetalhadoResponse buscaBeneficiarioAtravesId(UUID idBeneficiario) {
+        log.info("[inicia] BeneficiarioApplicationService - buscaBeneficiarioAtravesId");
+        Beneficiario beneficiario = beneficiarioRepository.buscaBeneficiarioAtravesId(idBeneficiario);
+        log.info("[finaliza] BeneficiarioApplicationService - buscaBeneficiarioAtravesId");
+        return new BeneficiarioDetalhadoResponse(beneficiario);
     }
 }

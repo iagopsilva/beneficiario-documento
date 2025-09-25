@@ -9,6 +9,7 @@ import org.antlr.v4.runtime.misc.LogManager;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -31,5 +32,14 @@ public class BeneficiarioInfraRepository implements BeneficiarioRepository {
         List<Beneficiario> todosBeneficiarios = beneficiarioSpringDataJPARepository.findAll();
         log.info("[finaliza] BeneficiarioInfraRepository - buscaTudosBeneficiarios");
         return todosBeneficiarios;
+    }
+
+    @Override
+    public Beneficiario buscaBeneficiarioAtravesId(UUID idBeneficiario) {
+        log.info("[inicia] BeneficiarioInfraRepository - buscaBeneficiarioAtravesId");
+        Beneficiario beneficiario = beneficiarioSpringDataJPARepository.findById(idBeneficiario)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado!"));
+        log.info("[finaliza] BeneficiarioInfraRepository - buscaBeneficiarioAtravesId");
+        return beneficiario;
     }
 }
