@@ -17,7 +17,7 @@ import java.util.UUID;
 @Getter
 @Entity
 public class Documento {
-    @Id
+    @NotBlank
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "string", name = "idDocumento", updatable = false, unique = true, nullable = false)
     private String numDocumento;
@@ -28,19 +28,5 @@ public class Documento {
 
     private LocalDateTime dataInclusao;
     private LocalDateTime dataAtualizacao;
-
-    /*public Documento(BeneficiarioRequest beneficiarioRequest) {
-        this.nome = beneficiarioRequest.getNome();
-        this.telefone = beneficiarioRequest.getTelefone();
-        this.dataNascimento = beneficiarioRequest.getDataNascimento();
-        this.dataInclusao = LocalDateTime.now();
-        this.dataAtualizacao = LocalDateTime.now();
-    }
-
-    public void altera(BeneficiarioAlteracaoRequest beneficiarioRequest) {
-        this.nome = beneficiarioRequest.getNome();
-        this.telefone = beneficiarioRequest.getTelefone();
-        this.dataNascimento = beneficiarioRequest.getDataNascimento();
-    }*/
 
 }
