@@ -1,9 +1,6 @@
 package br.com.iago.beneficiario_documento.beneficiario.application.service;
 
-import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioDetalhadoResponse;
-import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioListResponse;
-import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
-import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioResponse;
+import br.com.iago.beneficiario_documento.beneficiario.application.api.*;
 import br.com.iago.beneficiario_documento.beneficiario.domain.Beneficiario;
 import br.com.iago.beneficiario_documento.beneficiario.application.repository.BeneficiarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -52,5 +49,14 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
         Beneficiario beneficiario = beneficiarioRepository.buscaBeneficiarioAtravesId(idBeneficiario);
         beneficiarioRepository.deletaBeneficiario(beneficiario);
         log.info("[finaliza] BeneficiarioApplicationService - deletaBeneficiarioAtravesId");
+    }
+
+    @Override
+    public void patchAlteraBeneficiario(UUID idBeneficiario, BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest) {
+        log.info("[inicia] BeneficiarioApplicationService - patchAlteraBeneficiario");
+        Beneficiario beneficiario = beneficiarioRepository.buscaBeneficiarioAtravesId(idBeneficiario);
+        beneficiario.altera(beneficiarioAlteracaoRequest);
+        beneficiarioRepository.salva(beneficiario);
+        log.info("[finaliza] BeneficiarioApplicationService - patchAlteraBeneficiario");
     }
 }

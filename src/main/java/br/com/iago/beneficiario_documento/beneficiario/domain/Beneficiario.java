@@ -1,5 +1,6 @@
 package br.com.iago.beneficiario_documento.beneficiario.domain;
 
+import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioAlteracaoRequest;
 import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -37,4 +38,11 @@ public class Beneficiario {
         this.dataInclusao = LocalDateTime.now();
         this.dataAtualizacao = LocalDateTime.now();
     }
+
+    public void altera(BeneficiarioAlteracaoRequest beneficiarioRequest) {
+        this.nome = beneficiarioRequest.getNome();
+        this.telefone = beneficiarioRequest.getTelefone();
+        this.dataNascimento = beneficiarioRequest.getDataNascimento();
+    }
+
 }
