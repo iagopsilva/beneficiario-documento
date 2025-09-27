@@ -17,16 +17,32 @@ import java.util.UUID;
 @Getter
 @Entity
 public class Documento {
-    @NotBlank
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "string", name = "idDocumento", updatable = false, unique = true, nullable = false)
+    @Column(columnDefinition = "uuid", name = "idDocumento", updatable = false, unique = true, nullable = false)
+    private UUID idDocumento;
+    @NotBlank
+    private String tipoDocumento;
+    @NotBlank
     private String numDocumento;
-    @Enumerated(EnumType.STRING)
-    private TipoDocumento tipoDocumento;
     @NotBlank
     private String descricao;
 
     private LocalDateTime dataInclusao;
     private LocalDateTime dataAtualizacao;
+
+    /*public Documento(BeneficiarioRequest beneficiarioRequest) {
+        this.nome = beneficiarioRequest.getNome();
+        this.telefone = beneficiarioRequest.getTelefone();
+        this.dataNascimento = beneficiarioRequest.getDataNascimento();
+        this.dataInclusao = LocalDateTime.now();
+        this.dataAtualizacao = LocalDateTime.now();
+    }
+
+    public void altera(BeneficiarioAlteracaoRequest beneficiarioRequest) {
+        this.nome = beneficiarioRequest.getNome();
+        this.telefone = beneficiarioRequest.getTelefone();
+        this.dataNascimento = beneficiarioRequest.getDataNascimento();
+    }*/
 
 }
