@@ -19,4 +19,9 @@ public interface DocumentoAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<DocumentoBeneficiarioListResponse> getDocumentosDoBeneficiario(@PathVariable UUID idBeneficiario);
+
+    @GetMapping(value = "/{idDocumento}")
+    @ResponseStatus(code = HttpStatus.OK)
+    DocumentoBeneficiarioDetalhadoResponse getDocumentoDoBeneficiarioAtravesId(@PathVariable UUID idBeneficiario,
+                                                                               @PathVariable UUID idDocumento);
 }
