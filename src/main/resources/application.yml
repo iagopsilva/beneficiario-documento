@@ -19,7 +19,6 @@ springdoc:
   swagger-ui:
     path: /public/swagger
 
-
 beneficiario-documento:
   jwt:
     expiracao: ${JWT_TEMPO_EXPIRACAO:15}
