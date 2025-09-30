@@ -37,7 +37,7 @@ public class DocumentoController implements DocumentoAPI {
     }
 
     @Override
-    public DocumentoBeneficiarioDetalhadoResponse getDocumentoDoBeneficiarioAtravesId(UUID idBeneficiario, UUID idDocumento) {
+    public DocumentoBeneficiarioDetalhadoResponse getDocumentoDoBeneficiario(UUID idBeneficiario, UUID idDocumento) {
         log.info("[inicia] DocumentoController - getDocumentoDoBeneficiarioAtravesId");
         log.info("[idBeneficiario] {} - [idDocumento] {}", idBeneficiario, idDocumento);
         DocumentoBeneficiarioDetalhadoResponse documento = documentoService.buscaDocumentoDoBeneficiario(idBeneficiario,idDocumento);

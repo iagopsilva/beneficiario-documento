@@ -13,9 +13,9 @@ public class DocumentoBeneficiarioDetalhadoResponse {
     private String descricao;
 
     public DocumentoBeneficiarioDetalhadoResponse(Documento documento) {
-        this.idDocumento = getIdDocumento();
-        this.tipoDocumento = getTipoDocumento();
-        this.numDocumento = getNumDocumento();
-        this.descricao = getDescricao();
+        this.idDocumento = documento.getIdDocumento();
+        this.tipoDocumento = documento.getTipoDocumento();
+        this.numDocumento = documento.getNumDocumento();
+        this.descricao = documento.getDescricao();
     }
 }
