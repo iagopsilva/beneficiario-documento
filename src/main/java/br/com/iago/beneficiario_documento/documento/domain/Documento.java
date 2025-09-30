@@ -2,6 +2,7 @@ package br.com.iago.beneficiario_documento.documento.domain;
 
 import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioAlteracaoRequest;
 import br.com.iago.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
+import br.com.iago.beneficiario_documento.documento.application.api.DocumentoAltecacaoRequest;
 import br.com.iago.beneficiario_documento.documento.application.api.DocumentoRequest;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -44,4 +45,10 @@ public class Documento {
         this.dataInclusao = LocalDateTime.now();
     }
 
+    public void altera(DocumentoAltecacaoRequest documentoRequest) {
+        this.tipoDocumento = documentoRequest.getTipoDocumento();
+        this.numDocumento = documentoRequest.getNumDocumento();
+        this.descricao = documentoRequest.getDescricao();
+        this.dataAtualizacao = LocalDateTime.now();
+    }
 }

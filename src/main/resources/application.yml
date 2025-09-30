@@ -14,3 +14,13 @@ spring:
     console:
       enabled: true
       path: /h2-console
+
+springdoc:
+  swagger-ui:
+    path: /public/swagger
+
+
+beneficiario-documento:
+  jwt:
+    expiracao: ${JWT_TEMPO_EXPIRACAO:15}
+    chave: ${JWT_CHAVE:123456}

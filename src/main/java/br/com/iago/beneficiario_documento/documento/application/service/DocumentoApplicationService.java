@@ -1,10 +1,7 @@
 package br.com.iago.beneficiario_documento.documento.application.service;
 
 import br.com.iago.beneficiario_documento.beneficiario.application.service.BeneficiarioService;
-import br.com.iago.beneficiario_documento.documento.application.api.DocumentoBeneficiarioDetalhadoResponse;
-import br.com.iago.beneficiario_documento.documento.application.api.DocumentoBeneficiarioListResponse;
-import br.com.iago.beneficiario_documento.documento.application.api.DocumentoRequest;
-import br.com.iago.beneficiario_documento.documento.application.api.DocumentoResponse;
+import br.com.iago.beneficiario_documento.documento.application.api.*;
 import br.com.iago.beneficiario_documento.documento.application.repository.DocumentoRepository;
 import br.com.iago.beneficiario_documento.documento.domain.Documento;
 import lombok.RequiredArgsConstructor;
@@ -56,6 +53,16 @@ public class DocumentoApplicationService implements DocumentoService {
         beneficiarioService.buscaBeneficiarioAtravesId(idBeneficiario);
         Documento documento = documentoRepository.buscaDocumentoPeloId(idDocumento);
         documentoRepository.deletaDocumento(documento);
+        log.info("[finaliza] DocumentoApplicationService - deletaDocumentoDoBeneficiario");
+    }
+
+    @Override
+    public void alteraDocumentoDoBeneficiario(UUID idBeneficiario, UUID idDocumento, DocumentoAltecacaoRequest documentoAltecacaoRequest) {
+        log.info("[inicia] DocumentoApplicationService - deletaDocumentoDoBeneficiario");
+        beneficiarioService.buscaBeneficiarioAtravesId(idBeneficiario);
+        Documento documento = documentoRepository.buscaDocumentoPeloId(idDocumento);
+        documento.altera(documentoAltecacaoRequest);
+        documentoRepository.salvaDocumento(documento);
         log.info("[finaliza] DocumentoApplicationService - deletaDocumentoDoBeneficiario");
     }
 }
