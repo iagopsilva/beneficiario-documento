@@ -30,4 +30,13 @@ public class DocumentoInfraRepository implements DocumentoRepository {
         log.info("[finaliza] DocumentoInfraRepository - buscaDocumentosDoBeneficiario");
         return documentos;
     }
+
+    @Override
+    public Documento buscaDocumentoPeloId(UUID idDocumento) {
+        log.info("[inicia] DocumentoInfraRepository - buscaDocumentoPeloId");
+        var documento = documentoSpringJPARepository.findById(idDocumento)
+                .orElseThrow(() -> new RuntimeException("Documento não encontrado para o idDocumneto = " + idDocumento));
+        log.info("[finaliza] DocumentoInfraRepository - buscaDocumentoPeloId");
+        return documento;
+    }
 }

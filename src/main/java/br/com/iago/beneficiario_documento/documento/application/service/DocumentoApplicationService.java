@@ -44,8 +44,9 @@ public class DocumentoApplicationService implements DocumentoService {
     @Override
     public DocumentoBeneficiarioDetalhadoResponse buscaDocumentoDoBeneficiario(UUID idBeneficiario, UUID idDocumento) {
         log.info("[inicia] DocumentoApplicationService - buscaDocumentoDoBeneficiario");
-        log.info("[inicia] DocumentoApplicationService - buscaDocumentoDoBeneficiario");
-
-        return null;
+        beneficiarioService.buscaBeneficiarioAtravesId(idBeneficiario);
+        Documento documento = documentoRepository.buscaDocumentoPeloId(idDocumento);
+        log.info("[finaliza] DocumentoApplicationService - buscaDocumentoDoBeneficiario");
+        return new DocumentoBeneficiarioDetalhadoResponse(documento);
     }
 }
